@@ -12,9 +12,13 @@ class DomDocumentParser
         ];
 
         $kontekst = stream_context_create($opcije);
-        $this -> $dok = new DomDocument();
-        @$this->$dok ->loadHTML(file_get_contents($url, false, $kontekst));//supersing errors:D
+        $this -> dok = new DomDocument();
+        @$this -> dok -> loadHTML(file_get_contents($url, false, $kontekst));//supersing errors:D
 
+    }
+    public function pronadjiLinkove()
+    {
+        return $this -> dok -> getElementsByTagName("a");
     }
 
 }
